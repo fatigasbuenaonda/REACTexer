@@ -1,28 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './App.css';
+import {Nav, Navbar, NavDropdown, MenuItem, Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl, Form} from 'react-bootstrap';
+import Title from './components/Title';
+import PlayersSearch  from './components/PlayersSearch';
+import { setPlayers } from '../src/actions/index';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+
+  constructor(props) {
+      super(props);
+      
+      this.state = {
+
+      };
+    }
+
+
+render() {   
+        return (
+        <div className="App">
+            <Title></Title>
+            <br />
+            <PlayersSearch/>
+            <br /><br />
+        </div>
+        
     );
-  }
-}
+}}
 
 export default App;
+
+/*
+App.propTypes = {
+    setCity: PropTypes.func.isRequired,
+}
+const mapDispatchToProps = dispatch => ({
+        setPlayers: value => dispatch(setPlayers(value))
+});
+
+export default connect(null, mapDispatchToProps)(App);
+*/
+
